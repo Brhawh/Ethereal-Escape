@@ -16,8 +16,14 @@ _global_script_class_icons={
 [application]
 
 config/name="Ethereal Escape"
+run/main_scene="res://Menu.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/height=768
 
 [rendering]
 
+environment/default_clear_color=Color( 0.14902, 0.192157, 0.219608, 1 )
 environment/default_environment="res://default_env.tres"
