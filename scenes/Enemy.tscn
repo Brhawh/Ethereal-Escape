@@ -48,8 +48,10 @@ radius = 20.3919
 script = ExtResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
-animation = "up"
+animation = "down"
+playing = true
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 
