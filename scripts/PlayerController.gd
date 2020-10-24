@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export (int) var speed = 350
 var velocity = Vector2()
+var hasKey = false
 var enemies = []
 
 func get_input():
@@ -37,3 +38,6 @@ func _on_SpellRadius_body_entered(body):
 func _on_SpellRadius_body_exited(body):
 	if body.is_in_group("Enemies"):
 		enemies.remove(enemies.find(body))
+
+func pick_up_key():
+	hasKey = true
