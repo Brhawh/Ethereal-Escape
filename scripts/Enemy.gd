@@ -7,7 +7,9 @@ extends Node2D
 
 export (int) var health = 10
 export (float) var speed = 0.01
-export (NodePath) var nav2d
+
+onready var target
+onready var nav2d
 
 var path = []
 var path_points = 0
@@ -20,7 +22,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var mouse_pos = get_viewport().get_mouse_position()
-	path = get_node(nav2d).get_simple_path(global_position, mouse_pos)
+	path = nav2d.get_simple_path(global_position, target.global_position)
 	if path.size() < path_points:
 		print("no transition")
 	
