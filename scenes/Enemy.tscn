@@ -1,0 +1,59 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://assets/sprites/Farmer7.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Enemy.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprites/Farmer9.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/Farmer8.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/Farmer15.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/Farmer16.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/Farmer1.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/Farmer11.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/Farmer12.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/Farmer2.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/Farmer10.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/Farmer14.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/Farmer5.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/Farmer6.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/Farmer13.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/Farmer3.png" type="Texture" id=16]
+[ext_resource path="res://assets/sprites/Farmer4.png" type="Texture" id=17]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 1 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "left",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "right",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 12 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "up",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 10 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "down",
+"speed": 10.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 20.3919
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 2, 2 )
+frames = SubResource( 1 )
+animation = "down"
+playing = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource( 2 )
