@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export (int) var speed = 350
 var velocity = Vector2()
+var hasKey = false
 
 func get_input():
 	velocity = Vector2()
@@ -20,3 +21,6 @@ func get_input():
 func _physics_process(delta):
 	get_input()
 	velocity = move_and_slide(velocity)
+	
+func pick_up_key():
+	hasKey = true
