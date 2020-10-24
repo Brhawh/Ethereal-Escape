@@ -254,7 +254,7 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
 position = Vector2( 480.996, 293.471 )
-speed = 1.0
+speed = 9.297
 nav2d = NodePath("../Navigation2D")
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
