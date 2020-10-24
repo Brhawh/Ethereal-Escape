@@ -20,8 +20,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	var mouse_pos = get_viewport().get_mouse_position()
+func _process(_delta):
 	path = nav2d.get_simple_path(global_position, target.global_position)
 	if path.size() < path_points:
 		print("no transition")
@@ -31,7 +30,17 @@ func _process(delta):
 	if path_points < 2: 
 		print("early ret")
 		return
-
-	global_position += global_position.direction_to(path[1]) * speed
+	var direction = global_position.direction_to(path[1])
+	global_position += direction * speed
 	
+	if abs(direction.x) > abs(direction.y):
+		if direction.x > 0:
+			$AnimatedSprite.play("right")
+		elif direction.x < 0: 
+			$AnimatedSprite.play("left")
+	else:
+		if direction.y > 0:
+			$AnimatedSprite.play("down")
+		elif direction.y < 0:
+			$AnimatedSprite.play("up")
 	update()
