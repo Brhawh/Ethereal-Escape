@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/sprites/Ghost1.png" type="Texture" id=1]
 [ext_resource path="res://scripts/PlayerController.gd" type="Script" id=2]
@@ -20,6 +20,9 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 15.6191, 17.5122 )
 
+[sub_resource type="CircleShape2D" id=3]
+radius = 222.535
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
@@ -30,3 +33,10 @@ animation = "left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+
+[node name="SpellRadius" type="Area2D" parent="."]
+
+[node name="SpellRadiusCollision" type="CollisionShape2D" parent="SpellRadius"]
+shape = SubResource( 3 )
+[connection signal="body_entered" from="SpellRadius" to="." method="_on_SpellRadius_body_entered"]
+[connection signal="body_exited" from="SpellRadius" to="." method="_on_SpellRadius_body_exited"]
