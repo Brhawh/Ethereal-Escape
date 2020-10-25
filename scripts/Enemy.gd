@@ -24,12 +24,12 @@ func _ready():
 func _process(_delta):
 	
 	var bodies=get_colliding_bodies()
-	for bod in bodies:
-		print(bod.get_name())
+	#for bod in bodies:
+		#print(bod.get_name())
 	
 	if feared:
 		var fear_timer
-		var fear_duration = 4
+		var fear_duration = 5
 		fear_timer = Timer.new()
 		fear_timer.set_one_shot(true)
 		fear_timer.set_wait_time(fear_duration)
@@ -37,7 +37,7 @@ func _process(_delta):
 		add_child(fear_timer)
 		fear_timer.start()
 		path = nav2d.get_simple_path(global_position, spawnPos)
-	if target.detectable == false:
+	elif target.detectable == false:
 		var idle_timer
 		var idle_duration = 4
 		idle_timer = Timer.new()
@@ -77,5 +77,5 @@ func _on_idle_timer_timeout():
 	pass
 
 func _on_Enemy_body_entered(body):
-	if body.name == "Player" && target.detectable == true:
+	if body.name == "Player" && target.detectable == true && !feared:
 		get_tree().change_scene("res://scenes/YouDied.tscn")
