@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
-export (int) var speed = 350
+export (int) var speed = 125
 var velocity = Vector2()
 
-var hasKey = false
+var numKeys = 0
 var inRangeOfDoor = false
 
 var enemies = []
@@ -64,7 +64,7 @@ func get_input():
 			possess_timer_cooldown.start()
 			
 	if Input.is_action_pressed("use_door"):
-		if hasKey and inRangeOfDoor:
+		if numKeys == get_parent().numKeys and inRangeOfDoor:
 			LevelManager.loadNextLevel()
 
 func _physics_process(delta):
@@ -104,7 +104,7 @@ func _on_SpellRadius_body_exited(body):
 		enemies.remove(enemies.find(body))
 
 func pick_up_key():
-	hasKey = true
+	numKeys += 1
 	
 func _on_fear_timer_timeout():
 	canFear = true
