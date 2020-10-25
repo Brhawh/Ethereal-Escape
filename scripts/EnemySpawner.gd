@@ -27,6 +27,6 @@ func _on_timer_timeout():
 	var spawnedNode = spawn_scene.instance()
 	spawnedNode.global_position = spawn_pos.global_position
 	spawnedNode.nav2d = nav2d
-	spawnedNode.speed = 1
+	spawnedNode.speed = 100
 	spawnedNode.target = target
 	get_parent().add_child(spawnedNode)

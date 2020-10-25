@@ -19,10 +19,6 @@ config/name="Ethereal Escape"
 run/main_scene="res://scenes/Level1.tscn"
 config/icon="res://icon.png"
 
-[autoload]
-
-LevelManager="*res://scripts/LevelManager.gd"
-
 [display]
 
 window/size/height=768
@@ -53,16 +49,10 @@ right={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
  ]
 }
-fear={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":81,"unicode":0,"echo":false,"script":null)
- ]
-}
-use_door={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
- ]
-}
+
+[physics]
+
+2d/default_gravity=0
 
 [rendering]
 

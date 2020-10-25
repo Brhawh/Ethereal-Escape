@@ -5,7 +5,7 @@ extends RigidBody2D
 # var b = "text"
 
 export (int) var health = 10
-export (float) var speed = 0.01
+export (float) var speed
 
 onready var target
 onready var nav2d
@@ -34,16 +34,13 @@ func _process(_delta):
 		path = nav2d.get_simple_path(global_position, spawnPos)
 	else:
 		path = nav2d.get_simple_path(global_position, target.global_position)
-	if path.size() < path_points:
-		print("no transition")
 	
 	path_points = path.size()
 	
 	if path_points < 2:
-		print("early ret")
 		return
 	var direction = global_position.direction_to(path[1])
-	global_position += direction * speed
+	linear_velocity = direction * speed
 	
 	if abs(direction.x) > abs(direction.y):
 		if direction.x > 0:
