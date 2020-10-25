@@ -78,18 +78,22 @@ func fear():
 func possess():
 	var closest_distance = null
 	var location = Vector2()
+	var index
 	for e in range(enemies.size()):
 		var offset = enemies[e].position - position
 		var distance = offset.length()
 		if closest_distance == null:
 			closest_distance = distance
 			location = enemies[e].position
+			index = e
 		if distance < closest_distance:
 			closest_distance = distance
 			location = enemies[e].position
+			index = e
 	if closest_distance != null:
 		position = location
 		$PlayerSprite.play("possess")
+		enemies[index].queue_free()
 
 func _on_SpellRadius_body_entered(body):
 	if body.is_in_group("Enemies"):
