@@ -34,13 +34,10 @@ func _process(_delta):
 		path = nav2d.get_simple_path(global_position, spawnPos)
 	else:
 		path = nav2d.get_simple_path(global_position, target.global_position)
-	if path.size() < path_points:
-		print("no transition")
 	
 	path_points = path.size()
 	
 	if path_points < 2:
-		print("early ret")
 		return
 	var direction = global_position.direction_to(path[1])
 	linear_velocity = direction * speed
