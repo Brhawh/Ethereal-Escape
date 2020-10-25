@@ -4,6 +4,7 @@ export (int) var speed = 350
 var velocity = Vector2()
 
 var hasKey = false
+var inRangeOfDoor = false
 
 var enemies = []
 var canFear = true
@@ -61,6 +62,10 @@ func get_input():
 			possess_timer_cooldown.connect("timeout", self, "_on_possess_timer_timeout")
 			add_child(possess_timer_cooldown)
 			possess_timer_cooldown.start()
+			
+	if Input.is_action_pressed("use_door"):
+		if hasKey and inRangeOfDoor:
+			LevelManager.loadNextLevel()
 
 func _physics_process(delta):
 	get_input()
