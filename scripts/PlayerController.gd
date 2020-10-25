@@ -16,7 +16,7 @@ var possessDuration = 5
 var detectable = true
 
 var canPhantasmalFlight = true
-var phantasmalFlightCooldown = 20
+var phantasmalFlightCooldown = 10
 var phantasmalFlightDuration = 5
 
 func get_input():
