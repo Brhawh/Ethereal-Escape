@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/Tilemap.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/EnemySpawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/KeyItem.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/TileMap.gd" type="Script" id=6]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 997.971, 42.3335, 997.4, 750.163, 927.554, 581.898, 927.554, 178.699, 41.8745, 44.0153, 132.267, 175.524, 38.5109, 729.344, 135.441, 294.579, 60.8337, 729.526, 859.296, 578.724, 310.055, 750.163, 795.8, 597.772, 227.511, 437.445, 227.511, 1000.97, 59.2463, 999.384, 857.708, 291.404, 792.625, 453.319, 313.23, 585.073 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 0, 3, 5 ), PoolIntArray( 6, 4, 5, 7, 8 ), PoolIntArray( 9, 2, 1, 10, 11 ), PoolIntArray( 12, 13, 14, 8, 7 ), PoolIntArray( 12, 7, 15, 16 ), PoolIntArray( 16, 15, 9, 11 ), PoolIntArray( 11, 10, 17 ) ]
+outlines = [ PoolVector2Array( 997.971, 42.3335, 997.4, 750.163, 310.055, 750.163, 313.23, 585.073, 795.8, 597.772, 792.625, 453.319, 227.511, 437.445, 227.511, 1000.97, 59.2463, 999.384, 60.8337, 729.526, 38.5109, 729.344, 41.8745, 44.0153 ), PoolVector2Array( 132.267, 175.524, 927.554, 178.699, 927.554, 581.898, 859.296, 578.724, 857.708, 291.404, 135.441, 294.579 ) ]
+
+[node name="Level2" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2( 3, 3 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 65542, 39, 0, 65543, 39, 0, 65544, 39, 0, 65545, 39, 0, 65546, 39, 0, 65547, 39, 0, 65548, 39, 0, 65549, 39, 0, 65550, 39, 0, 65551, 39, 0, 65552, 39, 0, 65553, 39, 0, 65554, 39, 0, 131078, 39, 0, 131090, 39, 0, 196614, 39, 0, 196616, 12, 0, 196617, 24, 0, 196618, 18, 0, 196619, 23, 0, 196620, 13, 0, 196626, 39, 0, 262150, 39, 0, 262152, 43, 0, 262156, 44, 0, 262157, 46, 0, 262158, 23, 0, 262159, 13, 0, 262162, 39, 0, 327686, 39, 0, 327688, 43, 0, 327689, 39, 0, 327690, 39, 0, 327691, 39, 0, 327695, 11, 0, 327698, 39, 0, 393222, 39, 0, 393224, 43, 0, 393225, 39, 0, 393226, 22, 0, 393227, 39, 0, 393228, 39, 0, 393229, 39, 0, 393230, 39, 0, 393231, 11, 0, 393234, 39, 0, 458758, 39, 0, 458760, 43, 0, 458761, 39, 0, 458762, 39, 0, 458763, 39, 0, 458764, 31, 0, 458765, 32, 0, 458766, 39, 0, 458767, 11, 0, 458770, 39, 0, 524294, 39, 0, 524296, 8, 0, 524297, 7, 0, 524298, 7, 0, 524299, 7, 0, 524300, 9, 0, 524301, 29, 0, 524302, 39, 0, 524303, 11, 0, 524306, 39, 0, 589830, 39, 0, 589831, 44, 0, 589837, 48, 0, 589838, 39, 0, 589839, 11, 0, 589842, 39, 0, 655366, 39, 0, 655374, 39, 0, 655375, 11, 0, 655378, 39, 0, 720914, 39, 0, 786450, 39, 0, 851986, 39, 0, 917504, 39, 0, 917505, 39, 0, 917506, 39, 0, 917507, 39, 0, 917508, 39, 0, 917509, 39, 0, 917510, 39, 0, 917511, 39, 0, 917512, 39, 0, 917513, 39, 0, 917514, 39, 0, 917515, 39, 0, 917516, 39, 0, 917517, 39, 0, 917518, 39, 0, 917519, 39, 0, 917520, 39, 0, 917521, 39, 0, 917522, 39, 0 )
+script = ExtResource( 6 )
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+visible = false
+position = Vector2( -5.29736, 6.35675 )
+navpoly = SubResource( 1 )
+
+[node name="EnemySpawner" parent="." instance=ExtResource( 3 )]
+position = Vector2( 144.688, 911.259 )
+spawn_scene = ExtResource( 2 )
+nav2dPath = NodePath("../../Level2/Navigation2D")
+targetPath = NodePath("../../Level2/Player")
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 103.187, 143.763 )
+
+[node name="KeyItem" parent="." instance=ExtResource( 5 )]
+position = Vector2( 891.091, 666.373 )
