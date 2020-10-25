@@ -1,6 +1,6 @@
 extends Node2D
 
-export (int) var spawn_cool_down = 3
+export (int) var spawn_cool_down = 10
 export (PackedScene) var spawn_scene
 
 onready var spawn_pos = get_node("Position2D")
