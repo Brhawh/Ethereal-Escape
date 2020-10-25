@@ -1,9 +1,5 @@
 extends RigidBody2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 export (int) var health = 10
 export (float) var speed
 
@@ -22,6 +18,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	
+	var bodies=get_colliding_bodies()
+	for bod in bodies:
+		print(bod.get_name())
+	
 	if feared:
 		var fear_timer
 		var fear_duration = 4
@@ -31,6 +32,16 @@ func _process(_delta):
 		fear_timer.connect("timeout", self, "_on_timer_timeout")
 		add_child(fear_timer)
 		fear_timer.start()
+		path = nav2d.get_simple_path(global_position, spawnPos)
+	if target.detectable == false:
+		var idle_timer
+		var idle_duration = 4
+		idle_timer = Timer.new()
+		idle_timer.set_one_shot(true)
+		idle_timer.set_wait_time(idle_duration)
+		idle_timer.connect("timeout", self, "_on_idle_timer_timeout")
+		add_child(idle_timer)
+		idle_timer.start()
 		path = nav2d.get_simple_path(global_position, spawnPos)
 	else:
 		path = nav2d.get_simple_path(global_position, target.global_position)
@@ -57,3 +68,10 @@ func _process(_delta):
 
 func _on_timer_timeout():
 	feared = false
+
+func _on_idle_timer_timeout():
+	pass
+
+func _on_Enemy_body_entered(body):
+	if body.name == "Player" && target.detectable == true:
+		get_tree().change_scene("res://scenes/YouDied.tscn")
