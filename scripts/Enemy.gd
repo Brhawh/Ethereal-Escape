@@ -22,6 +22,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	
+	var bodies=get_colliding_bodies()
+	for bod in bodies:
+		print(bod.get_name())
+	
 	if feared:
 		var fear_timer
 		var fear_duration = 4
@@ -57,3 +62,7 @@ func _process(_delta):
 
 func _on_timer_timeout():
 	feared = false
+
+func _on_Enemy_body_entered(body):
+	if body.name == "Player":
+		get_tree().change_scene("res://scenes/YouDied.tscn")
