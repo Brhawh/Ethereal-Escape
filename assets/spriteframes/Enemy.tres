@@ -19,9 +19,9 @@
 
 [resource]
 animations = [ {
-"frames": [ ExtResource( 8 ), ExtResource( 16 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 12 ), ExtResource( 1 ), ExtResource( 9 ) ],
 "loop": true,
-"name": "up",
+"name": "left",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 11 ), ExtResource( 3 ), ExtResource( 15 ), ExtResource( 2 ) ],
@@ -29,9 +29,9 @@ animations = [ {
 "name": "right",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 12 ), ExtResource( 1 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 16 ), ExtResource( 13 ), ExtResource( 14 ) ],
 "loop": true,
-"name": "left",
+"name": "up",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 10 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 4 ) ],
