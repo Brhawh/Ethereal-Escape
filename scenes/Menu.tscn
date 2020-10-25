@@ -35,6 +35,10 @@ custom_fonts/font = SubResource( 1 )
 text = " - Get all the keys in each level to open the door
  - Press space next to door if you have all keys
  - If you touch an enemy you die (instantly)
+ - You have 3 abilities
+        - press Q to 'fear' the enemies - they'll run away!
+        - press E to possess the nearest enemy
+        - press R to activate 'Phantasmal flight' and fly through walls.
 
 
 
