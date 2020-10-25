@@ -1,21 +1,23 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://scenes/Tilemap.tres" type="TileSet" id=1]
+[ext_resource path="res://assets/Tilemap.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/EnemySpawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/KeyItem.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/TileMap.gd" type="Script" id=6]
+[ext_resource path="res://scripts/Level.gd" type="Script" id=7]
 
 [sub_resource type="NavigationPolygon" id=1]
-vertices = PoolVector2Array( 997.971, 42.3335, 997.4, 750.163, 927.554, 581.898, 927.554, 178.699, 41.8745, 44.0153, 132.267, 175.524, 38.5109, 729.344, 135.441, 294.579, 60.8337, 729.526, 859.296, 578.724, 310.055, 750.163, 795.8, 597.772, 227.511, 437.445, 227.511, 1000.97, 59.2463, 999.384, 857.708, 291.404, 792.625, 453.319, 313.23, 585.073 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 0, 3, 5 ), PoolIntArray( 6, 4, 5, 7, 8 ), PoolIntArray( 9, 2, 1, 10, 11 ), PoolIntArray( 12, 13, 14, 8, 7 ), PoolIntArray( 12, 7, 15, 16 ), PoolIntArray( 16, 15, 9, 11 ), PoolIntArray( 11, 10, 17 ) ]
-outlines = [ PoolVector2Array( 997.971, 42.3335, 997.4, 750.163, 310.055, 750.163, 313.23, 585.073, 795.8, 597.772, 792.625, 453.319, 227.511, 437.445, 227.511, 1000.97, 59.2463, 999.384, 60.8337, 729.526, 38.5109, 729.344, 41.8745, 44.0153 ), PoolVector2Array( 132.267, 175.524, 927.554, 178.699, 927.554, 581.898, 859.296, 578.724, 857.708, 291.404, 135.441, 294.579 ) ]
+vertices = PoolVector2Array( 222.139, 498.469, 269.068, 514.856, 140.634, 516.342, 158.219, 498.469, 190.03, 131.896, 220.143, 98.1593, 271.447, 95.6602, 268.771, 240.743, 236.663, 257.987, 188.841, 227.33, 188.841, 162.518, 334.178, 239.554, 336.556, 468.179, 316.978, 435.738, 316.681, 322.466, 190.03, 67.0842, 221.91, 32.7519, 156.435, 434.252, 140.931, 434.584, 141.229, 385.232, 28.8702, 33.8125, 139.489, 65.5976, 110.353, 65.3003, 61.2984, 67.9761, 29.5773, 130.333, 60.1092, 131.301, 269.366, 467.585, 252.761, 435.738, 27.9566, 226.473, 29.4871, 210.978, 60.7038, 162.221, 60.7038, 227.33, 28.8486, 260.96, 29.1898, 148.545, -67.4333, 147.653, -65.9468, 210.681, -98.6874, 194.74, -99.6313, 84.0707, 221.247, 419.684, 253.058, 322.466, 221.247, 435.441, 220.652, 355.467, 236.068, 337.961, 76.7142, 435.476, 79.0926, 483.044, -2.66535, 483.639, -2.66537, 338.853, 140.381, 131.301, 139.786, 161.923, 107.975, 131.301, 77.3088, 338.258, 76.4169, 384.935, 140.381, 227.924, 109.164, 227.627, 108.569, 163.113, 156.138, 419.387, 156.732, 354.278, 141.229, 337.664, -227.426, 227.959, -144.701, 194.504, -195.435, 194.976, -226.749, 66.3395, -194.727, 82.6549, -66.5892, 65.2788, -67.2964, 128.918 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7, 8, 9, 10 ), PoolIntArray( 11, 12, 13, 14 ), PoolIntArray( 5, 4, 15, 16 ), PoolIntArray( 17, 3, 2, 18, 19 ), PoolIntArray( 20, 16, 15, 21 ), PoolIntArray( 20, 21, 22 ), PoolIntArray( 20, 22, 23 ), PoolIntArray( 24, 20, 23, 25 ), PoolIntArray( 13, 12, 26, 27 ), PoolIntArray( 28, 29, 30, 31, 32 ), PoolIntArray( 25, 30, 29, 33, 24 ), PoolIntArray( 34, 35, 36, 37 ), PoolIntArray( 38, 39, 27, 40 ), PoolIntArray( 39, 38, 41, 42 ), PoolIntArray( 26, 1, 0, 40, 27 ), PoolIntArray( 7, 11, 14, 39, 8 ), PoolIntArray( 43, 44, 45, 46 ), PoolIntArray( 47, 4, 10, 48, 49 ), PoolIntArray( 46, 50, 51 ), PoolIntArray( 43, 46, 51 ), PoolIntArray( 48, 52, 53, 54 ), PoolIntArray( 38, 40, 17, 55 ), PoolIntArray( 43, 51, 19, 18 ), PoolIntArray( 55, 17, 19 ), PoolIntArray( 56, 55, 19, 57 ), PoolIntArray( 56, 57, 42, 41 ), PoolIntArray( 39, 42, 8 ), PoolIntArray( 9, 8, 32, 52 ), PoolIntArray( 53, 52, 32, 31 ), PoolIntArray( 35, 29, 28, 58 ), PoolIntArray( 59, 36, 35, 58, 60 ), PoolIntArray( 60, 58, 61, 62 ), PoolIntArray( 62, 61, 63, 37 ), PoolIntArray( 37, 63, 64 ), PoolIntArray( 34, 37, 64 ), PoolIntArray( 34, 64, 24, 33 ), PoolIntArray( 54, 30, 25, 49, 48 ), PoolIntArray( 47, 49, 22, 21 ) ]
+outlines = [ PoolVector2Array( -226.749, 66.3395, -66.5892, 65.2788, -67.2964, 128.918, 29.5773, 130.333, 28.8702, 33.8125, 221.91, 32.7519, 220.143, 98.1593, 271.447, 95.6602, 268.771, 240.743, 334.178, 239.554, 336.556, 468.179, 269.366, 467.585, 269.068, 514.856, 140.634, 516.342, 140.931, 434.584, 76.7142, 435.476, 79.0926, 483.044, -2.66535, 483.639, -2.66537, 338.853, 77.3088, 338.258, 76.4169, 384.935, 141.229, 385.232, 141.229, 337.664, 236.068, 337.961, 236.663, 257.987, 28.8486, 260.96, 27.9566, 226.473, -227.426, 227.959 ), PoolVector2Array( -194.727, 82.6549, -99.6313, 84.0707, -98.6874, 194.74, -144.701, 194.504, -195.435, 194.976 ), PoolVector2Array( -67.4333, 147.653, 29.1898, 148.545, 29.4871, 210.978, -65.9468, 210.681 ), PoolVector2Array( 60.7038, 162.221, 108.569, 163.113, 109.164, 227.627, 60.7038, 227.33 ), PoolVector2Array( 61.2984, 67.9761, 60.1092, 131.301, 107.975, 131.301, 110.353, 65.3003 ), PoolVector2Array( 139.489, 65.5976, 190.03, 67.0842, 190.03, 131.896, 140.381, 131.301 ), PoolVector2Array( 139.786, 161.923, 188.841, 162.518, 188.841, 227.33, 140.381, 227.924 ), PoolVector2Array( 156.732, 354.278, 220.652, 355.467, 221.247, 419.684, 156.138, 419.387 ), PoolVector2Array( 253.058, 322.466, 252.761, 435.738, 316.978, 435.738, 316.681, 322.466 ), PoolVector2Array( 156.435, 434.252, 221.247, 435.441, 222.139, 498.469, 158.219, 498.469 ) ]
 
 [node name="Level2" type="Node2D"]
+script = ExtResource( 7 )
+numKeys = 4
 
 [node name="TileMap" type="TileMap" parent="."]
-scale = Vector2( 3, 3 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
@@ -25,18 +27,62 @@ script = ExtResource( 6 )
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
-visible = false
 position = Vector2( -5.29736, 6.35675 )
 navpoly = SubResource( 1 )
 
 [node name="EnemySpawner" parent="." instance=ExtResource( 3 )]
-position = Vector2( 144.688, 911.259 )
+position = Vector2( 137.232, 517.569 )
+spawn_scene = ExtResource( 2 )
+nav2dPath = NodePath("../../Level2/Navigation2D")
+targetPath = NodePath("../../Level2/Player")
+
+[node name="EnemySpawner2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 325.232, 469.569 )
+spawn_scene = ExtResource( 2 )
+nav2dPath = NodePath("../../Level2/Navigation2D")
+targetPath = NodePath("../../Level2/Player")
+
+[node name="EnemySpawner3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 326.732, 249.069 )
+spawn_scene = ExtResource( 2 )
+nav2dPath = NodePath("../../Level2/Navigation2D")
+targetPath = NodePath("../../Level2/Player")
+
+[node name="EnemySpawner4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 26.7323, 261.069 )
+spawn_scene = ExtResource( 2 )
+nav2dPath = NodePath("../../Level2/Navigation2D")
+targetPath = NodePath("../../Level2/Player")
+
+[node name="EnemySpawner5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 261.509, 105.475 )
+spawn_scene = ExtResource( 2 )
+nav2dPath = NodePath("../../Level2/Navigation2D")
+targetPath = NodePath("../../Level2/Player")
+
+[node name="EnemySpawner6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 213.402, 41.9787 )
+spawn_scene = ExtResource( 2 )
+nav2dPath = NodePath("../../Level2/Navigation2D")
+targetPath = NodePath("../../Level2/Player")
+
+[node name="EnemySpawner7" parent="." instance=ExtResource( 3 )]
+position = Vector2( -229.657, 74.2267 )
 spawn_scene = ExtResource( 2 )
 nav2dPath = NodePath("../../Level2/Navigation2D")
 targetPath = NodePath("../../Level2/Player")
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 103.187, 143.763 )
+position = Vector2( 107.944, 138.412 )
 
 [node name="KeyItem" parent="." instance=ExtResource( 5 )]
-position = Vector2( 891.091, 666.373 )
+position = Vector2( -152.621, 184.064 )
+
+[node name="KeyItem2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 24.1554, 437.562 )
+
+[node name="KeyItem3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 23.8019, 358.719 )
+
+[node name="KeyItem4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 120.088, 135.887 )
