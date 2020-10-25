@@ -4,7 +4,7 @@
 [ext_resource path="res://scripts/Enemy.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 13.0
+radius = 10.6144
 
 [node name="Enemy" type="RigidBody2D" groups=[
 "Enemies",
@@ -15,9 +15,9 @@ contact_monitor = true
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 2, 2 )
 frames = ExtResource( 1 )
 animation = "down"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

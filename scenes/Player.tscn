@@ -27,14 +27,14 @@ animations = [ {
 "name": "left",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 11 ), ExtResource( 15 ), ExtResource( 8 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "possess_left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ) ],
@@ -54,7 +54,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 15.6191, 17.5122 )
+extents = Vector2( 6.09177, 6.73458 )
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 222.535
@@ -63,7 +63,6 @@ radius = 222.535
 script = ExtResource( 2 )
 
 [node name="PlayerSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "left"
 
@@ -74,5 +73,9 @@ shape = SubResource( 2 )
 
 [node name="SpellRadiusCollision" type="CollisionShape2D" parent="SpellRadius"]
 shape = SubResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.5, 0.5 )
 [connection signal="body_entered" from="SpellRadius" to="." method="_on_SpellRadius_body_entered"]
 [connection signal="body_exited" from="SpellRadius" to="." method="_on_SpellRadius_body_exited"]

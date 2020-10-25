@@ -1,6 +1,6 @@
 extends Node2D
 
-export (int) var spawn_cool_down = 3
+export (int) var spawn_cool_down = 2
 export (PackedScene) var spawn_scene
 
 onready var spawn_pos = get_node("Position2D")
@@ -27,6 +27,6 @@ func _on_timer_timeout():
 	var spawnedNode = spawn_scene.instance()
 	spawnedNode.global_position = spawn_pos.global_position
 	spawnedNode.nav2d = nav2d
-	spawnedNode.speed = 100
+	spawnedNode.speed = 50
 	spawnedNode.target = target
 	get_parent().add_child(spawnedNode)

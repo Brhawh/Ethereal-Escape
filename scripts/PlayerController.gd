@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
-export (int) var speed = 350
+export (int) var speed = 125
 var velocity = Vector2()
 
-var hasKey = false
+var numKeys = 0
 var inRangeOfDoor = false
 
 var enemies = []
@@ -64,13 +64,11 @@ func get_input():
 			possess_timer_cooldown.start()
 			
 	if Input.is_action_pressed("use_door"):
-		if hasKey and inRangeOfDoor:
-			pass
-			# LevelManager.loadNextLevel()
+		if numKeys == get_parent().numKeys and inRangeOfDoor:
+			LevelManager.loadNextLevel()
 
 func _physics_process(delta):
 	get_input()
-	print(velocity)
 	velocity = move_and_slide(velocity)
 
 func fear():
@@ -80,18 +78,22 @@ func fear():
 func possess():
 	var closest_distance = null
 	var location = Vector2()
+	var index
 	for e in range(enemies.size()):
 		var offset = enemies[e].position - position
 		var distance = offset.length()
 		if closest_distance == null:
 			closest_distance = distance
 			location = enemies[e].position
+			index = e
 		if distance < closest_distance:
 			closest_distance = distance
 			location = enemies[e].position
+			index = e
 	if closest_distance != null:
 		position = location
 		$PlayerSprite.play("possess")
+		enemies[index].queue_free()
 
 func _on_SpellRadius_body_entered(body):
 	if body.is_in_group("Enemies"):
@@ -102,7 +104,7 @@ func _on_SpellRadius_body_exited(body):
 		enemies.remove(enemies.find(body))
 
 func pick_up_key():
-	hasKey = true
+	numKeys += 1
 	
 func _on_fear_timer_timeout():
 	canFear = true
