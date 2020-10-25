@@ -2,7 +2,7 @@ extends Node
 
 var currentScene = null
 var levelNumber = 1
-var lastLevelNumber = 2
+var lastLevelNumber = 3
 
 func _ready():
 	var root = get_tree().get_root()
