@@ -42,14 +42,14 @@ animations = [ {
 "name": "possess_right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 15 ), ExtResource( 8 ), ExtResource( 13 ) ],
-"loop": true,
-"name": "possess_left",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 12 ), ExtResource( 19 ), ExtResource( 16 ), ExtResource( 17 ) ],
 "loop": true,
 "name": "possess_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 15 ), ExtResource( 8 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "possess_left",
 "speed": 5.0
 } ]
 
@@ -74,5 +74,8 @@ shape = SubResource( 2 )
 
 [node name="SpellRadiusCollision" type="CollisionShape2D" parent="SpellRadius"]
 shape = SubResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
 [connection signal="body_entered" from="SpellRadius" to="." method="_on_SpellRadius_body_entered"]
 [connection signal="body_exited" from="SpellRadius" to="." method="_on_SpellRadius_body_exited"]

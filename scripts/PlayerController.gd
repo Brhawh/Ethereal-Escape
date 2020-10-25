@@ -65,12 +65,10 @@ func get_input():
 			
 	if Input.is_action_pressed("use_door"):
 		if hasKey and inRangeOfDoor:
-			pass
-			# LevelManager.loadNextLevel()
+			LevelManager.loadNextLevel()
 
 func _physics_process(delta):
 	get_input()
-	print(velocity)
 	velocity = move_and_slide(velocity)
 
 func fear():
