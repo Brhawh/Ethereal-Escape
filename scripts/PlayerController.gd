@@ -127,7 +127,7 @@ func possess():
 		detectable = false
 
 func phantasmal_flight():
-	set_collision_layer_bit(1, false)
+	set_collision_layer_bit(0, false)
 
 func _on_SpellRadius_body_entered(body):
 	if body.is_in_group("Enemies"):
@@ -155,4 +155,4 @@ func _on_phantasmal_timer_timeout():
 	
 func _on_phantasmal_timer_duration_timeout():
 	position = get_parent().get_node("Navigation2D").get_closest_point(position)
-	set_collision_layer_bit(1, true)
+	set_collision_layer_bit(0, true)
