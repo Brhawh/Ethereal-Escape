@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mansion_Tileset.png-cbbb1af2159b9959ea6afcb8b98fd374.stex"
+path="res://.import/Key5.png-7fa8609c1a86a7cec19621beecd110eb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Mansion_Tileset.png"
-dest_files=[ "res://.import/Mansion_Tileset.png-cbbb1af2159b9959ea6afcb8b98fd374.stex" ]
+source_file="res://assets/sprites/Items/Key5.png"
+dest_files=[ "res://.import/Key5.png-7fa8609c1a86a7cec19621beecd110eb.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
