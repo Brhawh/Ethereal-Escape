@@ -32,42 +32,49 @@ navpoly = SubResource( 1 )
 
 [node name="EnemySpawner" parent="." instance=ExtResource( 3 )]
 position = Vector2( 137.232, 517.569 )
+spawn_cool_down = 6
 spawn_scene = ExtResource( 2 )
 nav2dPath = NodePath("../../Level2/Navigation2D")
 targetPath = NodePath("../../Level2/Player")
 
 [node name="EnemySpawner2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 325.232, 469.569 )
+spawn_cool_down = 6
 spawn_scene = ExtResource( 2 )
 nav2dPath = NodePath("../../Level2/Navigation2D")
 targetPath = NodePath("../../Level2/Player")
 
 [node name="EnemySpawner3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 326.732, 249.069 )
+spawn_cool_down = 6
 spawn_scene = ExtResource( 2 )
 nav2dPath = NodePath("../../Level2/Navigation2D")
 targetPath = NodePath("../../Level2/Player")
 
 [node name="EnemySpawner4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 26.7323, 261.069 )
+spawn_cool_down = 6
 spawn_scene = ExtResource( 2 )
 nav2dPath = NodePath("../../Level2/Navigation2D")
 targetPath = NodePath("../../Level2/Player")
 
 [node name="EnemySpawner5" parent="." instance=ExtResource( 3 )]
 position = Vector2( 261.509, 105.475 )
+spawn_cool_down = 6
 spawn_scene = ExtResource( 2 )
 nav2dPath = NodePath("../../Level2/Navigation2D")
 targetPath = NodePath("../../Level2/Player")
 
 [node name="EnemySpawner6" parent="." instance=ExtResource( 3 )]
 position = Vector2( 213.402, 41.9787 )
+spawn_cool_down = 6
 spawn_scene = ExtResource( 2 )
 nav2dPath = NodePath("../../Level2/Navigation2D")
 targetPath = NodePath("../../Level2/Player")
 
 [node name="EnemySpawner7" parent="." instance=ExtResource( 3 )]
 position = Vector2( -229.657, 74.2267 )
+spawn_cool_down = 6
 spawn_scene = ExtResource( 2 )
 nav2dPath = NodePath("../../Level2/Navigation2D")
 targetPath = NodePath("../../Level2/Player")

@@ -32,24 +32,28 @@ navpoly = SubResource( 1 )
 
 [node name="EnemySpawner" parent="." instance=ExtResource( 3 )]
 position = Vector2( 70.1376, 391.48 )
+spawn_cool_down = 4
 spawn_scene = ExtResource( 2 )
 nav2dPath = NodePath("../Navigation2D")
 targetPath = NodePath("../Player")
 
 [node name="EnemySpawner2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 424.27, 391.48 )
+spawn_cool_down = 4
 spawn_scene = ExtResource( 2 )
 nav2dPath = NodePath("../Navigation2D")
 targetPath = NodePath("../Player")
 
 [node name="EnemySpawner3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 424.27, 40.7108 )
+spawn_cool_down = 4
 spawn_scene = ExtResource( 2 )
 nav2dPath = NodePath("../Navigation2D")
 targetPath = NodePath("../Player")
 
 [node name="EnemySpawner4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 71.8168, 41.2721 )
+spawn_cool_down = 4
 spawn_scene = ExtResource( 2 )
 nav2dPath = NodePath("../Navigation2D")
 targetPath = NodePath("../Player")
