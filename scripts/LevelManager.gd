@@ -13,11 +13,17 @@ func loadNextLevel():
 	
 func _loadNextLevelDeferred():
 	levelNumber += 1
+	print(levelNumber)
 	var pathToNewScene = "res://scenes/Level" + str(levelNumber) + ".tscn"
 	if levelNumber > lastLevelNumber:
 		pathToNewScene = "res://scenes/YouWin.tscn"
-	currentScene.free()
+	if currentScene != null:
+		currentScene.free()
 	var newScene = ResourceLoader.load(pathToNewScene)
 	currentScene = newScene.instance()
 	get_tree().get_root().add_child(currentScene)
 	get_tree().set_current_scene(currentScene)
+
+func reset():
+	levelNumber = 0
+	loadNextLevel()

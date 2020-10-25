@@ -19,8 +19,9 @@ func _ready():
 func _on_ContinueButton_pressed():
 	print("start the game")
 	get_tree().change_scene("res://scenes/Level1.tscn")
-	pass # Replace with function body.
+
 
 
 func _on_Button_pressed():
+	print("start the game")
 	get_tree().change_scene("res://scenes/Level1.tscn")

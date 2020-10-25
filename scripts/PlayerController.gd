@@ -151,7 +151,7 @@ func _on_possess_timer_duration_timeout():
 	detectable = true
 	
 func _on_phantasmal_timer_timeout():
-	canPhantasmalFlight = false
+	canPhantasmalFlight = true
 	
 func _on_phantasmal_timer_duration_timeout():
 	position = get_parent().get_node("Navigation2D").get_closest_point(position)
