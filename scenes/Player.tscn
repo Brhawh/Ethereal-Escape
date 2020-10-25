@@ -27,14 +27,14 @@ animations = [ {
 "name": "left",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 15 ), ExtResource( 8 ), ExtResource( 13 ) ],
-"loop": true,
-"name": "possess_left",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 15 ), ExtResource( 8 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "possess_left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ) ],
@@ -60,6 +60,7 @@ extents = Vector2( 6.09177, 6.73458 )
 radius = 222.535
 
 [node name="Player" type="KinematicBody2D"]
+collision_layer = 3
 script = ExtResource( 2 )
 
 [node name="PlayerSprite" type="AnimatedSprite" parent="."]

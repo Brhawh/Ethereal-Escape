@@ -8,32 +8,38 @@ var inRangeOfDoor = false
 
 var enemies = []
 var canFear = true
-var fearCooldown
+var fearCooldown = 10
 
 var canPossess = true
-var possessCooldown
+var possessCooldown = 10
+var possessDuration = 5
+var detectable = true
+
+var canPhantasmalFlight = true
+var phantasmalFlightCooldown = 10
+var phantasmalFlightDuration = 5
 
 func get_input():
 	velocity = Vector2()
 	if Input.is_action_pressed('right'):
-		if canPossess:
+		if detectable:
 			$PlayerSprite.play("right")
 		else:
 			$PlayerSprite.play("possess_right")
 		velocity.x += 1
 	if Input.is_action_pressed('left'):
-		if canPossess:
+		if detectable:
 			$PlayerSprite.play("left")
 		else:
 			$PlayerSprite.play("possess_left")
 		velocity.x -= 1
 	if Input.is_action_pressed('down'):
 		velocity.y += 1
-		if !canPossess:
+		if !detectable:
 			$PlayerSprite.play("possess_down")
 	if Input.is_action_pressed('up'):
 		velocity.y -= 1
-		if !canPossess:
+		if !detectable:
 			$PlayerSprite.play("possess_up")
 	velocity = velocity.normalized() * speed
 	
@@ -42,10 +48,9 @@ func get_input():
 			fear()
 			canFear = false
 			var fear_timer_cooldown
-			var fear_cooldown = 10
 			fear_timer_cooldown = Timer.new()
 			fear_timer_cooldown.set_one_shot(true)
-			fear_timer_cooldown.set_wait_time(fear_cooldown)
+			fear_timer_cooldown.set_wait_time(fearCooldown)
 			fear_timer_cooldown.connect("timeout", self, "_on_fear_timer_timeout")
 			add_child(fear_timer_cooldown)
 			fear_timer_cooldown.start()
@@ -55,17 +60,42 @@ func get_input():
 			possess()
 			canPossess = false
 			var possess_timer_cooldown
-			var possess_cooldown = 10
 			possess_timer_cooldown = Timer.new()
 			possess_timer_cooldown.set_one_shot(true)
-			possess_timer_cooldown.set_wait_time(possess_cooldown)
+			possess_timer_cooldown.set_wait_time(possessCooldown)
 			possess_timer_cooldown.connect("timeout", self, "_on_possess_timer_timeout")
 			add_child(possess_timer_cooldown)
 			possess_timer_cooldown.start()
+			var possess_timer_duration
+			possess_timer_duration = Timer.new()
+			possess_timer_duration.set_one_shot(true)
+			possess_timer_duration.set_wait_time(possessDuration)
+			possess_timer_duration.connect("timeout", self, "_on_possess_timer_duration_timeout")
+			add_child(possess_timer_duration)
+			possess_timer_duration.start()
 			
 	if Input.is_action_pressed("use_door"):
 		if numKeys == get_parent().numKeys and inRangeOfDoor:
 			LevelManager.loadNextLevel()
+
+	if Input.is_action_pressed('phantasmal flight'):
+		if canPhantasmalFlight:
+			canPhantasmalFlight = false
+			var phantasmal_timer_cooldown
+			phantasmal_timer_cooldown = Timer.new()
+			phantasmal_timer_cooldown.set_one_shot(true)
+			phantasmal_timer_cooldown.set_wait_time(phantasmalFlightCooldown)
+			phantasmal_timer_cooldown.connect("timeout", self, "_on_phantasmal_timer_timeout")
+			add_child(phantasmal_timer_cooldown)
+			phantasmal_timer_cooldown.start()
+			var phantasmal_timer_duration
+			phantasmal_timer_duration = Timer.new()
+			phantasmal_timer_duration.set_one_shot(true)
+			phantasmal_timer_duration.set_wait_time(phantasmalFlightDuration)
+			phantasmal_timer_duration.connect("timeout", self, "_on_phantasmal_timer_duration_timeout")
+			add_child(phantasmal_timer_duration)
+			phantasmal_timer_duration.start()
+			phantasmal_flight()
 
 func _physics_process(delta):
 	get_input()
@@ -92,8 +122,12 @@ func possess():
 			index = e
 	if closest_distance != null:
 		position = location
-		$PlayerSprite.play("possess")
+		$PlayerSprite.play("possess_down")
 		enemies[index].queue_free()
+		detectable = false
+
+func phantasmal_flight():
+	set_collision_layer_bit(1, false)
 
 func _on_SpellRadius_body_entered(body):
 	if body.is_in_group("Enemies"):
@@ -108,9 +142,17 @@ func pick_up_key():
 	
 func _on_fear_timer_timeout():
 	canFear = true
-	print("Can Fear")
 	
 func _on_possess_timer_timeout():
 	canPossess = true
-	print("Can Possess")
+	
+func _on_possess_timer_duration_timeout():
 	$PlayerSprite.play("right")
+	detectable = true
+	
+func _on_phantasmal_timer_timeout():
+	canPhantasmalFlight = false
+	
+func _on_phantasmal_timer_duration_timeout():
+	position = get_parent().get_node("Navigation2D").get_closest_point(position)
+	set_collision_layer_bit(1, true)
