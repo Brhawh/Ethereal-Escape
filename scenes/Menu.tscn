@@ -6,9 +6,6 @@
 [ext_resource path="res://scenes/NewGameButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://GreatVictorian-Standard.otf" type="DynamicFontData" id=5]
 
-
-
-
 [sub_resource type="DynamicFont" id=1]
 size = 24
 font_data = ExtResource( 5 )
@@ -91,3 +88,6 @@ The Glitty Kitties"
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
