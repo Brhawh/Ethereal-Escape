@@ -23,7 +23,6 @@ func _ready():
 	nav2d = get_node(nav2dPath)
 	print(nav2d)
 	
-	
 func _on_timer_timeout():
 	var spawnedNode = spawn_scene.instance()
 	spawnedNode.global_position = spawn_pos.global_position
