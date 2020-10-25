@@ -20,14 +20,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 1 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "left",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 3 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "right",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 1 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "left",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 15 ), ExtResource( 12 ), ExtResource( 5 ), ExtResource( 6 ) ],
@@ -42,7 +42,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 20.3919
+radius = 13.0
 
 [node name="Enemy" type="RigidBody2D" groups=[
 "Enemies",
@@ -53,7 +53,7 @@ script = ExtResource( 2 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "down"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

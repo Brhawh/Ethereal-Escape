@@ -1,26 +1,22 @@
-extends Node2D
-
+extends RigidBody2D
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 
 export (int) var health = 10
-export (float) var speed = 0.01
+export (float) var speed
 
 onready var target
 onready var nav2d
 
 var path = []
 var path_points = 0
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _physics_process(delta):
+	set_rotation(0)
+	
 	path = nav2d.get_simple_path(global_position, target.global_position)
 	if path.size() < path_points:
 		print("no transition")
@@ -31,7 +27,7 @@ func _process(_delta):
 		print("early ret")
 		return
 	var direction = global_position.direction_to(path[1])
-	global_position += direction * speed
+	linear_velocity = direction * speed
 	
 	if abs(direction.x) > abs(direction.y):
 		if direction.x > 0:
